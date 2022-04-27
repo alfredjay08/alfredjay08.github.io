@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Facebook</title>
+        <style>
+            .container {
+                font-family:'Courier New', Courier, monospace;
+                padding: 50px;
+                width:300px;
+                position: absolute;
+                bottom: 0px;
+                right: 40px;
+                background-color: darkorchid;
+                border-top-left-radius: 30px;
+                border-top-right-radius: 30px;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)
+            }
+            .chat-box {
+                background-color: #fff;
+                height: 350px;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                border-radius: 25px;
+                margin-bottom: 25px;
+                padding:10px;
+            }
+            .config select{
+                width:20%;
+                padding: 10px;
+                border:0;
+                outline:0;
+                border-radius: 4px;
+                box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+            }
+            .config input { 
+                width:48%;
+                padding: 10px;
+                border: solid 1px rgba(0, 0, 0, 0.2);
+                border-radius: 4px;
+                box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+            }
+            .config button {
+                width:17%;
+                padding: 10px;
+                background: rgb(52, 226, 29);
+                border-radius: 4px;
+                border:0;
+                outline:0;
+                box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+                cursor: pointer;
+                color:#fff
+            }
+            .config button:hover {
+                background:rgba(52, 226, 29, 0.8);
+            }
+
+            .m-1 {
+              float: right;
+              background-color:rgba(52, 226, 29, 0.8);
+              color: #fff;
+            }
+
+            .m-2 {
+              float: left;
+              background-color:rgba(117, 146, 113, 0.8);
+            }
+
+            .msg {
+                height: 50px;
+            }
+
+            .msg span {
+                box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+                padding:8px;
+                border-radius: 7px;
+                
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div id="chat-box" class="chat-box">
+                
+            </div>
+            <div class="config">
+                <select id="sender">
+                    <option value="1">Person 1</option>
+                    <option value="2">Person 2</option>
+                </select>
+                <input type="text" id="message" placeholder="Enter Message" />
+                <button type="button" onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </body>
+    <script>
+      function sendMessage() {
+        var senderID = document.getElementById("sender").value;
+        var msg = document.getElementById("message").value;
+        var html = `
+            <div class="msg">
+                <span class="m-${senderID}">
+                  ${msg}
+                </span>
+            </div>
+        `;
+
+        document.getElementById("chat-box").innerHTML += html;
+        document.getElementById("message").value = "";
+      }
+    </script>
+</html>

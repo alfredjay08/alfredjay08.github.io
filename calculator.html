@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+      .wrapper {
+        padding: 0 auto
+      }
+
+      .cal-container {
+        width: 20.3%;
+        margin:auto;
+        background-color: #000;
+        border-radius: 20px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        padding:20px;
+      }
+
+      .cal-screen {
+        padding-top:100px;
+        margin-bottom: 10px
+      }
+
+      .cal-screen div {
+        text-align:right;
+        color:#fff;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 2.9em;
+        font-weight: 100;
+      }
+
+      .cal-buttons button {
+        width: 70px;
+        margin-bottom:8px;
+        margin-right:3.2px;
+        height: 70px;
+        border-radius: 50%;
+        border:0;
+        outline:0;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: 400;
+        font-size:1.9em;
+        color:#fff;
+        background-color: rgb(68, 66, 66);
+        cursor: pointer;
+      }
+
+      .cal-button .long-btn {
+        width:120px !important;
+      }
+
+      .cal-buttons .operator {
+        background-color: rgb(238, 124, 30);
+      }
+
+      .cal-buttons .misc {
+        background-color: rgb(177, 172, 167);
+        color:#000;
+      }
+
+      .active {
+        color: rgb(238, 124, 30) !important;
+        background: #fff !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="cal-container">
+        <div class="cal-screen">
+          <div>0</div>
+        </div>
+        <div class="cal-buttons">
+          <button type="button" onclick="clearNum()" class="misc">AC</button>
+          <button type="button" class="misc">+</button>
+          <button type="button" class="misc">%</button>
+          <button type="button" class="operator" onclick="setOperator('/', this)">/</button>
+          <button type="button" onclick="setNumber(7)">7</button>
+          <button type="button" onclick="setNumber(8)">8</button>
+          <button type="button" onclick="setNumber(9)">9</button>
+          <button type="button" class="operator" onclick="setOperator('x', this)">x</button>
+          <button type="button" onclick="setNumber(4)">4</button>
+          <button type="button" onclick="setNumber(5)">5</button>
+          <button type="button" onclick="setNumber(6)">6</button>
+          <button type="button" class="operator" onclick="setOperator('-', this)">-</button>
+          <button type="button" onclick="setNumber(1)">1</button>
+          <button type="button" onclick="setNumber(2)">2</button>
+          <button type="button" onclick="setNumber(3)">3</button>
+          <button type="button" class="operator" onclick="setOperator('+', this)">+</button>
+          <button type="button" style="width:146px; border-radius: 40px; text-align: left;padding-left:25px;">0</button>
+          <button type="button">.</button>
+          <button type="button" class="operator" onclick="setOperator('=')">=</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  var num1 = 0;
+  var num2 = 0;
+  var ope = "";
+  var opeClicked = false;
+
+  function setOperator(operator, evt) {
+    opeClicked = true;
+    if(num1 != 0) {
+      num2 = document.getElementsByClassName("cal-screen")[0].getElementsByTagName("div")[0].innerHTML;
+      switch(ope) {
+        case "+":
+          num1 = parseInt(num1) + parseInt(num2);
+          document.getElementsByClassName("cal-screen")[0].getElementsByTagName("div")[0].innerHTML = num1;
+        break;
+        case "-":
+          num1 = parseInt(num1) - parseInt(num2);
+          document.getElementsByClassName("cal-screen")[0].getElementsByTagName("div")[0].innerHTML = num1;
+        break;
+        case "x":
+          document.getElementsByClassName("cal-screen")[0].getElementsByTagName("div")[0].innerHTML = (num1 * num2);
+          num1 = num1 * num2;
+        break;
+        case "/":
+          document.getElementsByClassName("cal-screen")[0].getElementsByTagName("div")[0].innerHTML = (num1 / num2);
+          num1 = num1 / num2;
+        break;
+      }
+    } else {
+      num1 = document.getElementsByClassName("cal-screen")[0].getElementsByTagName("div")[0].innerHTML;
+    }
+
+    ope = operator;
+    if(ope == '=') {
+      ope = "";
+      num1 = 0;
+      opeClicked = false;
+      document.getElementsByClassName("active")[0].classList.remove("active");
+    } else {
+      evt.classList.add("active");
+
+    }
+  }
+
+  function clearNum() {
+    document.getElementsByClassName("cal-screen")[0].getElementsByTagName("div")[0].innerHTML = "0";
+  }
+
+  function setNumber(num) {
+    if(document.getElementsByClassName("cal-screen")[0].getElementsByTagName("div")[0].innerHTML == "0") {
+      document.getElementsByClassName("cal-screen")[0].getElementsByTagName("div")[0].innerHTML = num;
+    } else {
+      if(opeClicked) {
+        document.getElementsByClassName("cal-screen")[0].getElementsByTagName("div")[0].innerHTML = num;
+        opeClicked = false;
+      } else {
+        document.getElementsByClassName("cal-screen")[0].getElementsByTagName("div")[0].innerHTML += num;
+      }
+    }
+  }
+</script>

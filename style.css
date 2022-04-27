@@ -1,0 +1,35 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.btn {
+  border: none;
+  outline: none;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2), 0px 1px 6px rgba(0, 0, 0, 0.15);
+  padding: 8px 12px;
+  cursor: pointer;
+  margin: 5px;
+  border-radius: 2px;
+}
+
+.btn-success {
+  background: rgb(3, 218, 32);
+  color: #fff;
+}
+
+.btn-success:hover {
+  background: rgb(7, 202, 33);
+  color: #fff;
+}
+
+.btn-danger {
+  background: rgb(218, 53, 3);
+  color: #fff;
+}
+  
+.btn-danger:hover {
+  background: rgb(199, 50, 5);
+  color: #fff;
+}

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Facebook</title>
+    <style>
+      body {
+        overflow: hidden;
+      }
+
+      .box {
+        width:50px;
+        height:50px;
+        background: black;
+        position:absolute;
+        top:0px;
+        left:0px;
+        padding:0;
+        margin:0;
+      }
+
+      .circle {
+        width:50px;
+        height:50px;
+        background:red;
+        border-radius:50%;
+        position:absolute;
+        top:0;
+        left:0;
+        padding:0;
+        margin:0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shape box"></div>
+    <div class="shape box"></div>
+    <div class="shape circle" onclick="changeColor(this, 'green')"></div>
+    <div class="shape circle" onclick="changeColor(this, 'green')"></div>
+    <div class="shape box"></div>
+    <div class="shape box"></div>
+    <div class="shape circle" onclick="changeColor(this, 'green')"></div>
+    <div class="shape circle" onclick="changeColor(this, 'green')"></div><div class="shape box"></div>
+    <div class="shape box"></div>
+    <div class="shape circle" onclick="changeColor(this, 'green')"></div>
+    <div class="shape circle" onclick="changeColor(this, 'green')"></div>
+    <div class="shape box"></div>
+    <div class="shape box"></div>
+    <div class="shape circle" onclick="changeColor(this, 'green')"></div>
+    <div class="shape circle" onclick="changeColor(this, 'green')"></div>
+  </body>
+
+</html>
+
+<script>
+  var scrWidth = window.innerWidth;
+  var scrHeight = window.innerHeight;
+  var Shape = [];
+
+  function changeColor(event, color) {
+    event.style.background = color;
+  }
+
+  function setupShape() {
+    let asc = 0;
+    let length = document.getElementsByClassName("shape").length;
+    for(var i = 0; i < length; i++) {
+      if(i%2 == 0) {
+        asc = 2;
+      } else {
+        asc = -2;
+      }
+
+      Shape[i] = {
+        ascX: asc,
+        ascY: asc,
+        height: 50,
+        width: 50,
+        X: 0,
+        Y: 0
+      }
+    }
+  }
+
+  function start() {
+    for(var i = 0; i < Shape.length; i++) {
+      if(Shape[i].X > (scrWidth - Shape[i].width)) {
+        Shape[i].ascX = -2;
+      }
+
+      if(Shape[i].X <= 0) {
+        Shape[i].ascX = 2;
+      }
+
+      if(Shape[i].Y > (scrHeight - Shape[i].height)) {
+        Shape[i].ascY = -2;
+      }
+
+      if(Shape[i].Y <= 0) {
+        Shape[i].ascY = 2;
+      }
+
+      for(var j = 0; j < Shape.length; j++) {
+        if(i != j) {
+          if(Shape[i].X + Shape[i].height >= Shape[j].X && Shape[i].X <= Shape[j].X + Shape[j].width) {
+            if(Shape[i].Y + Shape[i].height >= Shape[j].Y && Shape[i].Y <= Shape[j].Y + Shape[j].height) {
+              if(Shape[i].X >= Shape[j].X) {
+                Shape[i].ascX = 2;
+              } else {
+                Shape[i].ascX = -2;
+              }
+
+              if(Shape[i].Y >= Shape[j].Y) {
+                Shape[i].ascY = 2;
+              } else {
+                Shape[i].ascY = -2;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    for(var i = 0; i < Shape.length; i++) {
+      Shape[i].X += Shape[i].ascX;
+      Shape[i].Y += Shape[i].ascY;
+
+      document.getElementsByClassName("shape")[i].style.left = Shape[i].X + "px";
+      document.getElementsByClassName("shape")[i].style.top = Shape[i].Y + "px";
+    }
+  }
+
+  function randomPos() {
+    let randX = 0;
+    let randY = 0;
+    for(var i = 0; i < Shape.length; i++) {
+      randX = Math.floor(Math.random() * (scrWidth - Shape[i].width));
+      randY = Math.floor(Math.random() * (scrHeight - Shape[i].height));
+
+      if(randX % 2 != 0) {
+        randX += 1;
+      }
+
+      if(randY % 2 != 0) {
+        randY += 1;
+      }
+
+      document.getElementsByClassName("shape")[i].style.left = randX + "px";
+      document.getElementsByClassName("shape")[i].style.top = randY + "px";
+      Shape[i].X = randX;
+      Shape[i].Y = randY;
+    }
+  }
+
+  setupShape();
+  randomPos();
+  setInterval(start, 10);
+
+</script>
