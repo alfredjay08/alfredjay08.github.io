@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        height: 100vh;
+        display: grid;
+        place-items: center;
+      }
+
+      .loader-container {
+        width: 100px;
+        height: 50px;
+        border-radius: 50px;
+        background: #f1f1f1;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
+      }
+
+      .loader-container .loader {
+        width: 10px;
+        height: 10px;
+        background: #fff;
+        border-radius: 4px;
+        animation-name: bounce;
+        animation-duration: 1s;
+        animation-timing-function: linear;
+        animation-delay: 0.5s;
+        animation-iteration-count: infinite;
+      }
+
+      .loader-container .loader:first-child {
+        animation-delay: 0s;
+      }
+
+      .loadercontainer .loader:last-child {
+        animation-delay: 1s;
+      }
+
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translate(0, 0%);
+        }
+
+        50% {
+          transform: translate(0, 60%);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="loader first"></div>
+      <div class="loader second"></div>
+      <div class="loader third"></div>
+    </div>
+  </body>
+</html>

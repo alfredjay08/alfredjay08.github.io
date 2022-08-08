@@ -1,0 +1,227 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap"); */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Montserrat, sans-serif;
+  height: 100vh;
+}
+
+.wrapper {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ccc;
+}
+
+.chat-box-container {
+  height: 100%;
+  width: 100%;
+  max-width: 450px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-box-container .header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em;
+  background: #43cea2; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #43cea2,
+    #185a9d
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #43cea2, #185a9d);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.chat-box-container .header h3 {
+  color: #95eacf;
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.9);
+  font-size: 1.5em;
+}
+
+.chat-box-container .message--container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  justify-content: flex-end;
+}
+
+.chat-box-container .message--container .message-row {
+  display: flex;
+  padding: 0.5em 0.8em;
+  position: relative;
+}
+
+.message-row .bot-icon {
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 10px;
+  font-size: 1.2em;
+}
+
+.message-row.left .bot-icon {
+  margin-right: 10px;
+}
+
+.message-row.right .bot-icon {
+  margin-left: 10px;
+  color: #43cea2;
+}
+
+.message-row .message-content {
+  width: auto;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 0.4em 0.6em;
+  max-width: 65%;
+  font-weight: 500;
+  position: relative;
+}
+
+.message-row .date {
+  opacity: 0.6;
+  font-size: 0.6em;
+}
+
+.message-row.right .date {
+  text-align: right;
+}
+
+.message-row .message-content .message {
+  overflow-wrap: break-word;
+  font-size: 1em;
+  letter-spacing: 0.2px;
+  margin-bottom: 0.3em;
+}
+
+.message-row.left {
+  justify-content: flex-start;
+}
+
+.message-row .message-content::after {
+  content: " ";
+  width: 0;
+  height: 0;
+  border-width: 6px;
+  border-style: solid;
+  position: absolute;
+  bottom: 15px;
+}
+
+.message-row.left .message-content::after {
+  left: -12px;
+  border-color: transparent #eaeaea transparent transparent;
+}
+
+.message-row.right .message-content::after {
+  right: -12px;
+  border-color: transparent transparent transparent #185a9d;
+}
+
+.message-row.right {
+  justify-content: flex-end;
+}
+
+.message-row.left .message-content {
+  background: #eaeaea;
+  color: #333;
+}
+
+.message-row.right .message-content {
+  background: #185a9d;
+  color: #fff;
+}
+
+.config--container {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  box-shadow: 0px -1px 3px rgba(0, 0, 0, 0.1);
+  padding: 0.5em;
+}
+
+.config--container input {
+  height: 100%;
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  outline: 0;
+  padding: 0.5em 0.8em;
+  margin-right: 10px;
+  border-radius: 20px;
+  font-size: 20px;
+}
+
+.config--container button {
+  width: 20%;
+  height: 100%;
+  border: 0;
+  outline: 0;
+  background: #43cea2;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
+.loader-container {
+  width: 50px;
+  height: 100%;
+  border-radius: 50px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.loader-container .loader {
+  width: 8px;
+  height: 8px;
+  background: #fff;
+  border-radius: 4px;
+  animation-name: bounce;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.loader-container .loader.first {
+  animation-delay: 0s;
+}
+
+.loader-container .loader.second {
+  animation-delay: 0.5s;
+}
+
+.loadercontainer .loader.third {
+  animation-delay: 1s;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translate(0, 0%);
+  }
+
+  50% {
+    transform: translate(0, 60%);
+  }
+
+  100% {
+    transform: translate(0, 0%);
+  }
+}
