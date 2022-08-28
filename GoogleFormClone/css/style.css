@@ -1,0 +1,162 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background-color: rgb(236, 238, 248);
+  padding: 15px 0;
+  background-color: lightblue;
+}
+
+.text-danger {
+  color: #d93025;
+}
+
+.text-success {
+  color: #2bc48a;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-family: Roboto, Arial, sans-serif;
+  flex-direction: column;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  width: 45%;
+  box-shadow: 0 1px 4px 0 rgb(0 0 0 / 3%);
+}
+
+.card-header {
+  background-color: rgb(63, 81, 181);
+  height: 10px;
+}
+
+.card-title {
+  font-family: "Google Sans", "Roboto", Helvetica, Arial, sans-serif;
+  font-size: 1.8em;
+  font-weight: 400;
+  margin-bottom: 0.2em;
+}
+
+.card-body {
+  padding: 1.2em 1.8em;
+}
+
+.config-container {
+  width: 45%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.btn-primary:hover {
+  background-color: #f9f9f9;
+}
+
+.page--text {
+  margin-left: 15px;
+}
+
+.btn--clear,
+.btn--show-summary {
+  margin-left: auto;
+}
+
+.btn--submit,
+.btn--retake {
+  background-color: rgb(63, 81, 181) !important;
+  color: #fff !important;
+}
+
+.btn--submit:hover {
+  background-color: rgb(73, 91, 191) !important;
+}
+
+.d-none {
+  display: none;
+}
+
+.answers-container > .answer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.8em;
+}
+
+.answers-container > .answer > input {
+  margin-right: 0.8em;
+}
+
+.input--error,
+.input--error input {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #de9691 !important;
+}
+
+.wrong--answer .answers-container {
+  display: none;
+}
+
+.summary-logo {
+  text-align: center;
+  padding: 0.7em 0;
+}
+
+.summary-logo img {
+  width: 100px;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+input[type="text"] {
+  border: none;
+  outline: none;
+  margin-top: 25px;
+  border-bottom: 1px solid rgb(0 0 0 / 17%);
+  padding: 0.5em 0.2em;
+  width: 50%;
+  transition: all 0.3s;
+}
+
+input[type="text"]:focus {
+  border-color: rgb(63, 81, 181);
+  border-width: 3px;
+}
+
+button[type="button"] {
+  border: none;
+  outline: none;
+  box-shadow: 0 1px 4px 0 rgb(0 0 0 / 7%);
+  padding: 0.8em 1.5em;
+  background-color: #fff;
+  border-radius: 4px;
+  font-family: "Google Sans", Roboto, Arial, sans-serif;
+  font-weight: 500;
+  color: rgb(63, 81, 181);
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+
+  .card {
+    width: 92%;
+  }
+
+  .config-container {
+    width: 92%;
+  }
+}
