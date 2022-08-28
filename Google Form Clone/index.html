@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Examination</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="card">
+        <div class="card-header"></div>
+        <div class="card-body">
+          <h3 class="card-title">Custom - Examination</h3>
+          <span class="exam--date">August 30, 2022</span>
+        </div>
+        <hr />
+        <div class="card-body form--comment">
+          Please fill in the required form below
+        </div>
+      </div>
+    </div>
+
+    <div class="wrapper client--name-form">
+      <div class="card">
+        <div class="card-body">
+          <label for="lastname" class="question-label">
+            Last Name <span class="text-danger">*</span></label
+          >
+          <br />
+          <input
+            type="text"
+            name="lastname"
+            id="lastname"
+            placeholder="Your answer"
+            class="name--input"
+          />
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <label for="firstname" class="question-label">
+            First Name <span class="text-danger">*</span></label
+          >
+          <br />
+          <input
+            type="text"
+            name="firstname"
+            id="firstname"
+            placeholder="Your answer"
+            class="name--input"
+          />
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <label for="middleinitial" class="question-label">
+            Middle Initial <span class="text-danger">*</span></label
+          >
+          <br />
+          <input
+            type="text"
+            name="middleinitial"
+            id="middleinitial"
+            placeholder="Your answer"
+            class="name--input"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="wrapper client--question-form d-none">
+      <!-- <div class="card" data-question="0">
+        <div class="card-body">
+          <p class="question-label">
+            It is the complete or partial dismantling of a building or structure
+            by pre-planned and controlled methods or procedures.
+          </p>
+          <br />
+          <div class="answers-container">
+            <div class="answer">
+              <input type="radio" id="answer--1" value="1" />
+              <label for="answer--1">A. Excavation</label>
+            </div>
+            <div class="answer">
+              <input type="radio" id="answer--2" value="1" />
+              <label for="answer--2">B. Excavation</label>
+            </div>
+            <div class="answer">
+              <input type="radio" id="answer--3" value="1" />
+              <label for="answer--3">C. Excavation</label>
+            </div>
+            <div class="answer">
+              <input type="radio" id="answer--4" value="1" />
+              <label for="answer--4">D. Excavation</label>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </div>
+
+    <div class="wrapper client--summary-form d-none">
+      <div class="card">
+        <div class="card-body">
+          <div class="summary-logo">
+            <img src="img/test-pass.png" />
+            <p>
+              <span class="text-success">Congratulations!</span> You have
+              successfully passed the required rate of the Examination!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrapper">
+      <div class="config-container">
+        <button type="button" class="btn btn-primary btn--next">Next</button>
+        <button type="button" class="btn btn-primary btn--submit d-none">
+          Submit
+        </button>
+        <button type="button" class="btn btn-primary btn--retake d-none">
+          Retake
+        </button>
+
+        <p class="page--text">Page 1 of 2</p>
+        <button type="button" class="btn btn--clear d-none">Clear Form</button>
+        <button type="button" class="btn btn--show-summary d-none">
+          Show Exam Summary
+        </button>
+      </div>
+    </div>
+
+    <br />
+    <script src="js/app.js"></script>
+  </body>
+</html>
