@@ -1,0 +1,30 @@
+// OOP
+  // 4 Fundametal OOP Principles
+   Abstraction
+	- Ignore or Hide details that don't matter
+   Encapsulation
+	- Keeping properties and methods private inside the class
+	- So they are not accessible from outside the class
+      - Some methods can be exposed as a public interface (API)
+	- Prevents External code from accidentally manipulating internal properties/state
+	- Allows to change internal implementation withouth the risk of breaking external code
+   Inheritance
+	- Making all properties and methods of a certain class available to a child class
+	- Forming a hierarchical relationship between classes.
+	- This will allows us to reuse common logic and to model real-world relationships
+   Polymorphism 
+	- A child class can overwrite a method it inherited from a parent class
+   
+  // Prototypal Inheritance
+    - The prototype contains methods (behavior) that are accessible to all objects that are linked to the prototype
+
+    // 3 Ways of Implementing Prototypal Inheritance
+    1. Constructor Functions
+        - Technique to create objects from a function;
+        - This is how built-in objects like Arrays, Maps or Sets are actually implemented
+    2. ES6 Classes
+        - Modern alternative to constructor functions syntax;
+        - "Syntactic sugar": behind the scenes, ES6 classes work exactly like constructor functions;
+        - ES6 classes do NOT behave like classes in "classical OOP"
+    3. Object.create()
+        - The easiest and most straightforward way of linking an object to a prototype object
